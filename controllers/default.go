@@ -43,6 +43,7 @@ func (this *QQController) Post() {
 	if err != nil {
 		fmt.Println("json.Unmarshal is err:", err.Error())
 	}
+	fmt.Println(user)
 	if user.post_type == "message" {
 		reply_message(user)
 	}
