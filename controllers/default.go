@@ -12,9 +12,6 @@ type MainController struct {
 	beego.Controller
 }
 
-type QQController struct {
-	beego.Controller
-}
 
 type MessageQQ struct {
 	post_type 		string
@@ -36,7 +33,7 @@ func reply_message(user MessageQQ) {
 	fmt.Println("ok")
 }
 
-func (this *QQController) Post() {
+func (this *MainController) Post() {
 	var user MessageQQ
 	data := this.Ctx.Input.RequestBody
 	err := json.Unmarshal(data, &user)
