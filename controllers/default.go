@@ -29,7 +29,7 @@ func (c *MainController) Get() {
 }
 
 func reply_message(user MessageQQ) {
-	urlSendMessage := "http://175.24.23.211:5700/send_msg"
+	urlSendMessage := "http://198.168.0.1:5700/send_msg"
 	jsonReply := new(bytes.Buffer)
 	json.NewEncoder(jsonReply).Encode(user)
 	reps, err := http.Post(urlSendMessage, "application/json;charset=utf-8", jsonReply)
@@ -47,6 +47,5 @@ func (this *MainController) Post() {
 	if err != nil {
 		fmt.Println("json.Unmarshal is err:", err.Error())
 	}
-	fmt.Println(string(data))
 	reply_message(user)
 }
