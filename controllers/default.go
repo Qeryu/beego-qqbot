@@ -2,9 +2,9 @@ package controllers
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"github.com/astaxie/beego"
-	"encoding/json"
 	"net/http"
 )
 
@@ -14,9 +14,8 @@ type MainController struct {
 
 
 type MessageQQ struct {
-	post_type 		string
-	usr_id 			string
-	message 		string
+	User_id 		int64 `json:"user_id"`
+	Message 		string `json:"message"`
 }
 
 
@@ -28,20 +27,17 @@ func (c *MainController) Get() {
 
 func reply_message(user MessageQQ) {
 	url := "http://192.168.0.1:5700/send_private_msg"
-	jsonReply,_ := json.Marshal(user)
-	http.NewRequest("POST", url, bytes.NewBuffer(jsonReply))
-	fmt.Println("ok")
+	jsonReply := new(bytes.Buffer)
+	json.NewEncoder(jsonReply).Encode(user)
+	http.Post(url, "application/json;charset=utf-8", jsonReply)
 }
 
 func (this *MainController) Post() {
-	var user MessageQQ
+	user := MessageQQ{}
 	data := this.Ctx.Input.RequestBody
 	err := json.Unmarshal(data, &user)
 	if err != nil {
 		fmt.Println("json.Unmarshal is err:", err.Error())
 	}
-	fmt.Println(user)
-	if user.post_type == "message" {
-		reply_message(user)
-	}
+	reply_message(user)
 }
