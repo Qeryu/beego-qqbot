@@ -17,28 +17,26 @@ type MessageQQ struct {
 	Message_type	string`json:"message_type"`
 
 	User_id 		int64`json:"user_id"`
-	Group_id		string`json:"group_id"`
-	Discuss_id		string`json:"discuss_id"`
+	Group_id		int64`json:"group_id"`
+	Discuss_id		int64`json:"discuss_id"`
 
 	Message 		string`json:"message"`
 }
 
 
 func (c *MainController) Get() {
-	c.Data["Website"] = "beego.me"
-	c.Data["Email"] = "astaxie@gmail.com"
-	c.TplName = "index.tpl"
+	c.Ctx.WriteString("hello world")
 }
 
 func reply_message(user MessageQQ) {
-	urlSendMessage := "http://175.24.23.211:5700/send_group_msg"
+	urlSendMessage := "http://198.162.0.1:5700/send_msg"
 	jsonReply := new(bytes.Buffer)
 	json.NewEncoder(jsonReply).Encode(user)
 	reps, err := http.Post(urlSendMessage, "application/json;charset=utf-8", jsonReply)
 	if err != nil {
 		fmt.Println("there is some err about reply")
 	}
-	fmt.Println(reps.Body)
+	fmt.Println(reps)
 }
 
 func (this *MainController) Post() {
