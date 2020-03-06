@@ -3,6 +3,7 @@ package ddl_reminder
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	"net/http"
 )
@@ -24,7 +25,7 @@ func FillFriendList(o orm.Ormer) {
 	//	fmt.Println("row sql error", err.Error())
 	//}
 
-	urlGetList := "http://192.168.0.1:5700/get_friend_list"
+	urlGetList := "http://"+ beego.AppConfig.String("serverhost") +":5700/get_friend_list"
 	reps, err := http.Get(urlGetList)
 	if err != nil {
 		fmt.Println("http get is err", err.Error())

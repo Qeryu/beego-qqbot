@@ -3,6 +3,7 @@ package main
 import (
 	"demo1/ddl_reminder"
 	_ "demo1/routers"
+	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
@@ -23,6 +24,7 @@ func init() {
 func main() {
 	o := orm.NewOrm()
 	o.Using("default")
+	fmt.Println("HHH")
 
 	ddl_reminder.FillFriendList(o)
 

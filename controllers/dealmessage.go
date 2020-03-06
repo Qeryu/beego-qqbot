@@ -3,6 +3,7 @@ package controllers
 import (
 	"demo1/models"
 	"fmt"
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	qqbotapi "github.com/catsworld/qq-bot-api"
 	"strconv"
@@ -52,11 +53,14 @@ func deal_messages(user MessageQQ) {
 
 func ddlChecker(user MessageQQ) bool {
 	o := orm.NewOrm()
-	bot, err := qqbotapi.NewBotAPI("123456789ab", "http://192.168.0.1:5700", "")
+	bot, err := qqbotapi.NewBotAPI("123456789ab", "http://"+ beego.AppConfig.String("serverhost") +":5700", "")
 
 	var sqlSentence string
 	qqnum := strconv.FormatInt(user.User_id, 10)
-	if user.Message[0:4] == "help" {
+
+	ddlCommand := strings.Split(user.Message, ",")
+
+	if ddlCommand[0] == "help" {
 		if useDdlChecker(user.User_id) == false {
 			//此处应该新建一个表，存储该用户的ddl信息
 			sqlSentence = "CREATE TABLE" + qqnum +
@@ -79,10 +83,9 @@ func ddlChecker(user MessageQQ) bool {
 			Text("4.回复\"help\"再次显示本帮助").NewLine().
 			Text("已经设置的任务，在结束前的24小时内每小时会提醒一次。").
 			Send()
-	} else if user.Message[0:3] == "add" {
-		addCommand := strings.Split(user.Message, ",")
+	} else if ddlCommand[0] == "add" {
 		_, addErr := o.Raw("INSERT INTO ? (thing, time) VALUES (?, ?)",
-			qqnum, addCommand[1], addCommand[2]).Exec()
+			qqnum, ddlCommand[1], ddlCommand[2]).Exec()
 
 		if addErr != nil {
 			fmt.Println("error in add task", addErr.Error())
@@ -95,7 +98,7 @@ func ddlChecker(user MessageQQ) bool {
 				Send()
 		}
 
-	} else if user.Message[0:4] == "list" {
+	} else if ddlCommand[0] == "list" {
 		var ddls []*models.Ddls
 		num, listErr := o.QueryTable(qqnum).All(&ddls)
 		if listErr != nil {
@@ -116,8 +119,7 @@ func ddlChecker(user MessageQQ) bool {
 				Send()
 		}
 	} else if user.Message[0:6] == "delete" {
-		deleteCommand := strings.Split(user.Message, ",")
-		_,delErr := o.Raw("DELETE FROM ? WHERE id=?", qqnum, deleteCommand[1]).Exec()
+		_,delErr := o.Raw("DELETE FROM ? WHERE id=?", qqnum, ddlCommand[1]).Exec()
 		if delErr != nil {
 			fmt.Println("error in delete task", delErr.Error())
 			bot.NewMessage(user.User_id, "private").
@@ -125,7 +127,7 @@ func ddlChecker(user MessageQQ) bool {
 				Send()
 		} else {
 			bot.NewMessage(user.User_id, "private").
-				Text("delete task " + deleteCommand[1] + " successfully").
+				Text("delete task " + ddlCommand[1] + " successfully").
 				Send()
 		}
 	} else {

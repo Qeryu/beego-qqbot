@@ -4,13 +4,14 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"github.com/astaxie/beego"
 	"net/http"
 )
 
 func reply_message(user MessageQQ) {
 	user.Message = "你好，" + user.Sender.Nickname + ":" + user.Message
 
-	urlSendMessage := "http://192.168.0.1:5700/send_msg"
+	urlSendMessage := "http://"+ beego.AppConfig.String("serverhost") +":5700/send_msg"
 	contenType := "application/json;charset=utf-8"
 	jsonReply := new(bytes.Buffer)
 	json.NewEncoder(jsonReply).Encode(user)

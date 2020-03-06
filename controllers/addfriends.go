@@ -5,12 +5,13 @@ import (
 	"demo1/models"
 	"encoding/json"
 	"fmt"
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	"net/http"
 )
 
 func add_friend(user MessageQQ) {
-	urlAddFriend := "http://192.168.0.1:5700/set_friend_add_request"
+	urlAddFriend := "http://"+ beego.AppConfig.String("serverhost") +":5700/set_friend_add_request"
 	contentType := "application/json;charset=utf-8"
 	addReply := AddFriendReply{}
 	addReply.Approve = true
