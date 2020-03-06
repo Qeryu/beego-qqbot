@@ -118,7 +118,7 @@ func ddlChecker(user MessageQQ) bool {
 				Text(ddl.Time + ",").
 				Send()
 		}
-	} else if user.Message[0:6] == "delete" {
+	} else if ddlCommand[0] == "delete" {
 		_,delErr := o.Raw("DELETE FROM ? WHERE id=?", qqnum, ddlCommand[1]).Exec()
 		if delErr != nil {
 			fmt.Println("error in delete task", delErr.Error())
