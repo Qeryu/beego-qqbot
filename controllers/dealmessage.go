@@ -52,7 +52,7 @@ func deal_messages(user MessageQQ) {
 
 func ddlChecker(user MessageQQ) bool {
 	o := orm.NewOrm()
-	bot, err := qqbotapi.NewBotAPI("123456789ab", "http://175.24.23.211:5700", "")
+	bot, err := qqbotapi.NewBotAPI("123456789ab", "http://192.168.0.1:5700", "")
 
 	var sqlSentence string
 	qqnum := strconv.FormatInt(user.User_id, 10)

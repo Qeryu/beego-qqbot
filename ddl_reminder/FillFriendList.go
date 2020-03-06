@@ -24,7 +24,7 @@ func FillFriendList(o orm.Ormer) {
 	//	fmt.Println("row sql error", err.Error())
 	//}
 
-	urlGetList := "http://175.24.23.211:5700/get_friend_list"
+	urlGetList := "http://192.168.0.1:5700/get_friend_list"
 	reps, err := http.Get(urlGetList)
 	if err != nil {
 		fmt.Println("http get is err", err.Error())
