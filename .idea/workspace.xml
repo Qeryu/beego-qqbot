@@ -3,13 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="db9895f5-1297-4398-b645-3a65d678306e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/app.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/app.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/default.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/default.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo1" beforeDir="false" afterPath="$PROJECT_DIR$/demo1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
   </component>
   <component name="GOROOT" path="/usr/lib/go-1.10" />
   <component name="Git.Settings">
@@ -23,11 +32,13 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../demo2-api" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -39,17 +50,21 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="293" y="120" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583505546836">
+      <screen x="71" y="27" width="1529" height="873" />
+    </state>
+    <state x="293" y="120" key="#com.intellij.execution.impl.EditConfigurationsDialog/71.27.1529.873@71.27.1529.873" timestamp="1583505546836" />
     <state x="540" y="259" width="580" height="406" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1583396697142">
       <screen x="71" y="27" width="1529" height="873" />
     </state>
     <state x="540" y="259" width="580" height="406" key="#com.intellij.fileTypes.FileTypeChooser/71.27.1529.873@71.27.1529.873" timestamp="1583396697142" />
-    <state x="1000" y="220" width="424" height="484" key="FileChooserDialogImpl" timestamp="1583395435459">
+    <state x="1000" y="220" width="424" height="484" key="FileChooserDialogImpl" timestamp="1583470360529">
       <screen x="71" y="27" width="1529" height="873" />
     </state>
-    <state x="1000" y="220" width="424" height="484" key="FileChooserDialogImpl/71.27.1529.873@71.27.1529.873" timestamp="1583395435459" />
-    <state x="498" y="212" width="672" height="676" key="search.everywhere.popup" timestamp="1583335329919">
+    <state x="1000" y="220" width="424" height="484" key="FileChooserDialogImpl/71.27.1529.873@71.27.1529.873" timestamp="1583470360529" />
+    <state x="498" y="212" width="672" height="676" key="search.everywhere.popup" timestamp="1583481510340">
       <screen x="71" y="27" width="1529" height="873" />
     </state>
-    <state x="498" y="212" width="672" height="676" key="search.everywhere.popup/71.27.1529.873@71.27.1529.873" timestamp="1583335329919" />
+    <state x="498" y="212" width="672" height="676" key="search.everywhere.popup/71.27.1529.873@71.27.1529.873" timestamp="1583481510340" />
   </component>
 </project>
