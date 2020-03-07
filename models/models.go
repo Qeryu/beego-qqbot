@@ -12,9 +12,11 @@ type Users struct {
 }
 
 type Ddls struct {
-	Id		int
-	Thing	string
-	Time	string
+	Id			int
+	Thing		string
+	Time		string
+	AdHours		string
+	TickerTime	string
 }
 
 func init()  {
