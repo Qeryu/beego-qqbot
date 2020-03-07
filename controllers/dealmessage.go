@@ -22,6 +22,7 @@ type MessageQQ struct {
 	Discuss_id		int64`json:"discuss_id"`
 
 	Message 		string`json:"message"`
+	Raw_message		string`json:"raw_message"`
 }
 
 type Sender struct {
@@ -47,7 +48,7 @@ func deal_messages(user MessageQQ) {
 }
 
 func ddlChecker(user MessageQQ) bool {
-	ddlCommand := strings.Split(user.Message, ",")
+	ddlCommand := strings.Split(user.Raw_message, ",")
 
 	if ddlCommand[0] == "help" {
 		ddl_reminder.HelpDDL(user.User_id)
