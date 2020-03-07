@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db9895f5-1297-4398-b645-3a65d678306e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/app.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/app.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/dealmessage.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/dealmessage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddl_reminder/addUser.go" beforeDir="false" afterPath="$PROJECT_DIR$/ddl_reminder/addUser.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddl_reminder/reminder.go" beforeDir="false" afterPath="$PROJECT_DIR$/ddl_reminder/reminder.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo1" beforeDir="false" afterPath="$PROJECT_DIR$/demo1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/models.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/models.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
