@@ -33,19 +33,18 @@ func AddStartClock(userId int64, ddlThing string, ddlTime string, adHours string
 					Text("halo，你的 " + ddlId + " 号ddl：").NewLine().
 					Text(ddlThing).NewLine().
 					Text("要到期了，请留意").Send()
-			} else {
-				return
 			}
-			
 		}
 	}()
 	time.Sleep(time.Hour * time.Duration(adHoursNum))
 	ticker.Stop()
-	bot.NewMessage(userId, "private").
-		Text("halo，你的 " + ddlId + " 号ddl：").NewLine().
-		Text(ddlThing).NewLine().
-		Text("要到期了，请留意，本次为最后一次提醒，ddl将被删除").Send()
-	DeleteDDL(userId, ddlId)
+	if checkExist(userId, ddlId) == true {
+		bot.NewMessage(userId, "private").
+			Text("halo，你的 " + ddlId + " 号ddl：").NewLine().
+			Text(ddlThing).NewLine().
+			Text("要到期了，请留意，本次为最后一次提醒，ddl将被删除").Send()
+		DeleteDDL(userId, ddlId)
+	}
 }
 
 func checkExist(userId int64, ddlId string) bool {
