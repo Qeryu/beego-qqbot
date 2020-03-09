@@ -36,8 +36,14 @@ func AddStartClock(userId int64, ddlThing string, ddlTime string, adHours string
 			}
 		}
 	}()
-	time.Sleep(time.Hour * time.Duration(adHoursNum))
+
+	if time.Hour * time.Duration(adHoursNum) > stTime.Sub(time.Now()) - 8 * time.Hour {
+		time.Sleep(stTime.Sub(time.Now()) - 8 * time.Hour)
+	} else {
+		time.Sleep(time.Hour * time.Duration(adHoursNum))
+	}
 	ticker.Stop()
+
 	if checkExist(userId, ddlId) == true {
 		bot.NewMessage(userId, "private").
 			Text("halo，你的 " + ddlId + " 号ddl：").NewLine().
