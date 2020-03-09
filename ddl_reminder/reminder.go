@@ -41,7 +41,6 @@ func HelpDDL(user_id int64) {
 		Text("2.回复\"list\"即可列出自己的所有DDL以及编号").NewLine().
 		Text("3.回复\"delete,2\"即可删除编号为2的任务").NewLine().
 		Text("4.回复\"help\"再次显示本帮助").NewLine().
-		Text("已经设置的任务，在结束前的24小时内每小时会提醒一次。").
 		Send()
 }
 
